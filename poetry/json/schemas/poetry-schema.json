@@ -40,12 +40,16 @@
         },
         "documentation": {
             "type": "string",
-            "description": "Documentation URL for the project.",
+            "cendescription": "Documentation URL for the project.",
             "format": "uri"
         },
         "license": {
             "type": "string",
             "description": "License name."
+        },
+        "license_file": {
+            "type": "string",
+            "description": "License file name."
         },
         "authors": {
             "$ref": "#/definitions/authors"

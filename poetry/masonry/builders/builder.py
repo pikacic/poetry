@@ -154,15 +154,23 @@ class Builder(object):
         )
         to_add.append(Path("pyproject.toml"))
 
-        # If a license file exists, add it
-        for license_file in self._path.glob("LICENSE*"):
+        # Add user specified license file (if any)
+        if self._package.license_file:
+            license_file = self._package.license_file.relative_to(self._path)
             self._io.write_line(
-                " - Adding: <comment>{}</comment>".format(
-                    license_file.relative_to(self._path)
-                ),
-                VERY_VERBOSE,
+                " - Adding: <comment>{}</comment>".format(license_file), VERY_VERBOSE,
             )
-            to_add.append(license_file.relative_to(self._path))
+            to_add.append(license_file)
+        else:
+            # otherwise fall back to an optional default
+            for license_file in self._path.glob("LICENSE*"):
+                self._io.write_line(
+                    " - Adding: <comment>{}</comment>".format(
+                        license_file.relative_to(self._path)
+                    ),
+                    VERY_VERBOSE,
+                )
+                to_add.append(license_file.relative_to(self._path))
 
         # If a README is specificed we need to include it
         # to avoid errors

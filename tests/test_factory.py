@@ -24,6 +24,10 @@ def test_create_poetry():
     assert package.authors == ["Sébastien Eustace <sebastien@eustace.io>"]
     assert package.license.id == "MIT"
     assert (
+        package.license_file.relative_to(fixtures_dir).as_posix()
+        == "sample_project/COPYING"
+    )
+    assert (
         package.readme.relative_to(fixtures_dir).as_posix()
         == "sample_project/README.rst"
     )

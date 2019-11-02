@@ -75,6 +75,12 @@ class Factory:
             license_ = None
 
         package.license = license_
+        if "license_file" in local_config:
+            package.license_file = (
+                Path(poetry_file.parent) / local_config["license_file"]
+            )
+        else:
+            package.license_file = None
         package.keywords = local_config.get("keywords", [])
         package.classifiers = local_config.get("classifiers", [])
 

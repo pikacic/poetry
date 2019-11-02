@@ -40,6 +40,13 @@ The recommended notation for the most common licenses is (alphabetical):
 Optional, but it is highly recommended to supply this.
 More identifiers are listed at the [SPDX Open Source License Registry](https://www.spdx.org/licenses/).
 
+#### license_file
+
+The license file of the package. **Optional**
+
+By default, any file matching the glob pattern `LICENSE*` is picked up, but if a different name is needed,
+it can be specified with this field.
+
 ## authors
 
 The authors of the package. **Required**

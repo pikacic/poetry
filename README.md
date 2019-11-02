@@ -111,6 +111,7 @@ version = "0.1.0"
 description = "The description of the package"
 
 license = "MIT"
+license_file = "LICENSE"  # Required if the license file does not match "LICENSE*"
 
 authors = [
     "Sébastien Eustace <sebastien@eustace.io>"
@@ -147,7 +148,7 @@ my-script = 'my_package:main'
 There are some things we can notice here:
 
 * It will try to enforce [semantic versioning](<http://semver.org>) as the best practice in version naming.
-* You can specify the readme, included and excluded files: no more `MANIFEST.in`.
+* You can specify the readme, license, included and excluded files: no more `MANIFEST.in`.
 `poetry` will also use VCS ignore files (like `.gitignore`) to populate the `exclude` section.
 * Keywords (up to 5) can be specified and will act as tags on the packaging site.
 * The dependencies sections support caret, tilde, wildcard, inequality and multiple requirements.
@@ -602,6 +603,13 @@ The recommended notation for the most common licenses is (alphabetical):
 
 Optional, but it is highly recommended to supply this.
 More identifiers are listed at the [SPDX Open Source License Registry](https://www.spdx.org/licenses/).
+
+#### license_file
+
+The license file of the package. **Optional**
+
+By default, any file matching the glob pattern `LICENSE*` is picked up, but if a different name is needed,
+it can be specified with this field.
 
 #### authors
 

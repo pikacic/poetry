@@ -6,6 +6,7 @@ authors = [
     "Sébastien Eustace <sebastien@eustace.io>"
 ]
 license = "MIT"
+license_file = "COPYING"
 
 readme = "README.rst"
 
